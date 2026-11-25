@@ -1,0 +1,16 @@
+# LaTeX build files (the compiled lamb_lions.pdf and lamb_lions.bbl are kept on purpose)
+*.aux
+*.log
+*.out
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*Notes.bib
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store

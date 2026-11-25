@@ -1,0 +1,284 @@
+\documentclass[aps,prl,twocolumn,superscriptaddress,floatfix,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+% REVIEW MARKS: the text added or reworded on 2026-11-25 (motivations and citations) is wrapped in \rev{...} and typeset in blue.
+% To switch the marks off, replace the next line by \newcommand{\rev}[1]{#1}; to accept a change, remove its \rev{ } wrapper.
+\newcommand{\rev}[1]{\textcolor{blue}{#1}}
+
+\newcommand{\eq}[1]{Eq.~(\ref{#1})}
+\newcommand{\eqs}[2]{Eqs.~(\ref{#1}) and~(\ref{#2})}
+\newcommand{\fig}[1]{Fig.~\ref{#1}}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+
+\begin{document}
+
+\title{Capture of a diffusing lamb by three diffusing lions:\\
+hidden symmetry and an exact solution}
+
+\author{M.~Biroli}
+\affiliation{James Franck Institute, The University of Chicago, Chicago, Illinois 60637, USA}
+
+\date{\today}
+
+\begin{abstract}
+    The lamb and lions problem is a classical open problem from stochastic processes with potential applications percolating to any capture process. The statement of the problem is surprisingly simple. A lamb starting at $\ell > 0$, represented by a one-dimensional diffusing random walker, is chased by a pride of $N$ lions starting at the origin, each lion is another independent one-dimensional diffusing random walker. If any lion touches the lamb the process terminates. The question is what is the late-time behavior of the survival probability $S(t)$ of the lamb? The answer is known for $N = 1, 2$ and the leading order is known for $N \gg 1$, but a generic solution for arbitrary $N \geq 3$ has eluded us for the past three decades. In this Letter, we show that the $N = 3$ problem has a hidden symmetry which allows us to provide a closed form solution for $N = 3$. We validate our results with simulations. 
+\end{abstract}
+
+\maketitle
+
+% --- main text ---
+How long does a diffusive particle survive in the presence of absorbing traps? Although deceptively simple, this problem is surprisingly complicated even for static traps \cite{RednerBook,BMS13}. Yet it has wide-ranging applications from diffusion-controlled reactions to animal foraging, search processes and prey-predator dynamics \cite{BLMV11,MOR14}. The problem becomes even harder when the traps are dynamical and even more so if the traps are stochastic. Classical examples include vicious walkers \cite{Fisher84,HF84}, the statistics of the leader (or laggard) among several random-walkers \cite{bA03,BNK10a,BNK10b,HbA18}, and capture processes where a diffusing prey is chased by diffusing predators \cite{BG91,KR96,RK99,GMPR12}. In all of these problems, the survival probability typically decays as a power-law at late-times with a persistence exponent which is notoriously hard to compute. Exact values are known only in a handful of cases \cite{BMS13,DHP95,MSBC96,DHZ96,PS18}.\\
+
+One of the most classical formulations of this problem is known as the lamb and lions problem \cite{BG91,KR96,RK99}. A lamb, starting at $\ell > 0$, and $N$ lions, starting from the origin, perform independent Brownian motions $x_0(t), x_1(t), \cdots, x_N(t)$ with diffusion constant $D$ on a line. Whenever any of the lions captures the lamb the process terminates, see Fig.~\ref{fig:sketch} for example trajectories. The object of interest is the survival probability $S_N(t)$ that the lamb survives up to time $t$ and specifically its late-time decay $S_N(t) \sim t^{-\beta_N}$. Although the lions do not interact they are strongly correlated through their shared termination condition, which is what makes this problem quite hard to solve. For large $N$ the lamb has to stay ahead of the rightmost lion and the problem simplifies to a lamb escaping from a deterministic front closing in like $\sim \sqrt{4 D t \ln N}$ for which $\beta_N \simeq \frac{1}{4} \ln N$ \cite{KR96,RK99,LS02}. Otherwise only two values are known exactly, $\beta_1 = \frac{1}{2}$ and $\beta_2 = \frac{3}{4}$ which are obtained by mapping the problem to a Brownian motion in an $N$-dimensional wedge \cite{FG88,KR96,RK99}.
+
+\begin{figure}[t]
+\includegraphics[width=\columnwidth]{figs/fig_sketch.pdf}
+\caption{Typical trajectories of a lamb (orange) chased by $N = 3$ lions (blue). The lions start together a distance $\ell$ behind the lamb, which survives until the capture time $t_{\rm c}$ at which a lion reaches it for the first time.}
+\label{fig:sketch}
+\end{figure}
+
+The first case which has resisted for the past three decades is $N = 3$. It is also a borderline case, it is known that the mean capture time is infinite for $N \leq 3$ but finite for $N \geq 4$ \cite{BG91,LS01,RT09}. So three lions is the largest pride for which the lamb escapes, on average, for an infinite time. The exponent $\beta_3$ has no known closed form solution but has been estimated numerically, first as $\beta_3 \approx 0.91$ \cite{BG91,RK99}, then 0.91342(8) \cite{bA03} \rev{and then $0.912\,878\,50$} \cite{HbA18}\rev{.}
+% REMOVED HERE (review mark): ', then $0.912\,878\,50$ \cite{HbA18} and finally in most recent works it was determined up to 100 digits \cite{BBKM16,BPRT20,DS20}.'  The 100 digits are now in the next paragraph, attributed to DS20 only.
+To our knowledge, no equation determining $\beta_3$ in closed form is known.
+
+\rev{The same number appears in two other fields. In enumerative combinatorics it controls the three-dimensional Kreweras walks, i.e., the lattice walks with steps $(-1,0,0)$, $(0,-1,0)$, $(0,0,-1)$ and $(1,1,1)$ confined to the positive octant \cite{BBKM16,BPRT20}: the number of those which return to the origin after $n$ steps grows as $4^n n^{-(2\beta_3 + 3/2)}$ \cite{DW15,BPRT20,SM}. It is in this context that $\beta_3$ is known most accurately, to 100 digits \cite{DS20}. Its exact value and its rationality are open problems \cite{BPRT20,HJR24}, an irrational value implying that the generating function of these walks is not D-finite \cite{BPRT20,DS20}, and the underlying eigenvalue problem was not expected to be solvable in an explicit manner \cite{HJR24}. In ultracold atoms, $2 \beta_N \hbar \omega$ is the energy of an impurity which repels, with an infinite contact interaction, $N$ noninteracting bosons in a one-dimensional harmonic trap of frequency $\omega$ \cite{SM}. To our knowledge it is known exactly for $N \leq 2$ only \cite{ZVFJV14}, the available exact solutions being restricted to hard walls which sit on all the mirrors of a reflection group \cite{HODVJZ17}, and numerically beyond \cite{DVZ15,RIJ24}.}
+
+In this Letter we solve the three lion problem exactly. Let us first summarize our main results. For three lions starting $\ell$ behind the lamb at $t = 0$ the late-time survival probability is given by
+\begin{equation} \label{eq:main}
+    S_3(t) \sim A \left( \frac{\ell^2}{D t} \right)^{\beta_3}\;, \begin{cases}
+        \beta_3 &= 0.912\,878\,502\,087\cdots\\
+        A &= 0.154\,612\cdots 
+    \end{cases} \;.
+\end{equation}
+The exponent $\beta_3$ can be expressed in closed form as the smallest root of an explicit transcendental equation (Eq.~\ref{eq:nu-implicit}). We also obtain a closed form for $S_3(t)$ at all times. The core observation that allows us to crack this problem was the identification of a hidden symmetry. The situation is reminiscent of the hydrogen atom, whose
+hidden symmetry, associated with the Runge-Lenz vector, is not visible in the geometry of the problem either.
+
+\emph{The model.} We consider a lamb whose position we denote $x_0(t)$ and $N$ lions at positions $x_1(t), \cdots, x_N(t)$ on a line evolving via the Langevin equations
+\begin{equation} \label{eq:langevin}
+    \begin{dcases}
+    \dv{x_i}{t} = \sqrt{2 D}\, \eta_i(t) \\
+    x_0(t = 0) = \ell\\
+    x_i(t = 0) = 0\;, i \neq 0
+    \end{dcases}
+    \quad \mbox{~~for~~} i = 0, 1, \cdots, N \;,
+\end{equation}
+where the $\eta_i(t)$ are independent Gaussian white noises with zero mean and correlator $\langle \eta_i(t) \eta_j(t') \rangle = \delta_{ij} \delta(t - t')$. More general initial conditions are treated in the Supplemental Material \cite{SM}. The lamb survives up to time $t$ with probability $S_N(t)$ if no lion reaches it up to time $t$. Equivalently, a reformulation of the problem is that the leader of $N+1$ walkers remains the leader up to time $t$ \cite{bA03,BNK10b}.
+
+\emph{Heat equation in a cone.} As is usually the case, it is convenient to consider the survival probability $S_N(\vb{x}, t)$ for arbitrary initial conditions $\vb{x} = (x_0, \cdots, x_N)$. Then writing the backward equation from Eq.~(\ref{eq:langevin}) leads to the well-known heat equation
+\begin{equation} \label{eq:heat}
+    \pdv{S}{t} = D \sum_{i = 0}^N \pdv[2]{S}{x_i} \;,
+\end{equation}
+with the initial condition $S = 1$ at $t = 0$. The difficulty in solving Eq.~(\ref{eq:heat}) lies in its boundary conditions. The process dies whenever the lamb touches a lion, i.e. $x_0~\leq~x_i$ for any $i \neq 0$, so $S = 0$ on each of the hyperplanes $x_0 = x_i$ \cite{RednerBook,RK99}. It is common to place oneself in the reference frame of the center of mass then the problem reduces to solving the survival of an $N$-dimensional Brownian motion in a cone, whose apex $O$ is the point where all animals coincide \cite{DeB87,BS97,bA03}. For two lions it is a wedge of opening angle
+$2\pi/3$ (see Fig.~\ref{fig:config}a), and for three lions a cone with three plane walls (Fig.~\ref{fig:config}b). 
+
+\begin{figure*}[t]
+\includegraphics[width=\textwidth]{figs/fig_config.pdf}
+\caption{Configuration space of the lamb and the lions in the center-of-mass frame. (a) Two lions: the lamb survives as long as a Brownian particle (sample trajectory) stays in a wedge of opening angle $2\pi/3$, whose apex is the point where the three animals coincide. (b) Three lions: the wedge becomes a cone of apex $O$ with three plane walls, on each of which the lamb meets one lion (two of them are visible). The cone cuts the unit sphere along the spherical triangle $T$, which plays the role of the arc of (a). (c) The triangle $T$ in stereographic projection. Solid lines: capture walls. Dashed lines: two lions meet. The walls meet at an angle $2\pi/3$ at the corners $V$, $c$ is the center of $T$ and the squares mark the points where the axes $q_a$ of Eq.~(\ref{eq:def-q}) pierce the sphere, in the middle of the walls. Bottom: positions of the animals on the line at the marked points. Colors: ground state, $\sin(3\phi/2)$ on the arc of (a) and $m_1$ on $T$, which is also the distribution of the configuration of a surviving lamb at late times. An interactive three-dimensional version of panels (b) and (c) is available at \url{https://claude.ai/artifact/H2ZqtW3LuSiLbS2pTUicRR}.}
+\label{fig:config}
+\end{figure*}
+
+\emph{Dimensional analysis.} The survival probability is a dimensionless quantity. It can only depend on the position $\vb{r}$ of the particle, measured from the apex of the cone, on the time $t$ and on the diffusion constant $D$ which has the dimension of a length squared over time. Hence the survival probability can only be a function of two dimensionless quantities 
+\begin{equation} \label{eq:dimensionless-S}
+    S(\alpha, \omega) \equiv S\left( \frac{r^2}{4 D t}, \frac{\vb{r}}{r} \right) \;.
+\end{equation}
+The first parameter $\alpha$ is the ratio of the distance to the diffusive length scale. Early times correspond to $\alpha \to +\infty$ and late times are obtained by taking $\alpha \to 0^+$. The position is then determined by the unit vector $\omega$ on the 2-sphere.
+
+\emph{Three lions. } From now on we focus on the three lions $N = 3$ case. In spherical coordinates the Laplacian in Eq.~(\ref{eq:heat}) can be written as
+\begin{equation} \label{eq:spherical-laplacian}
+    \laplacian = \pdv[2]{}{r} + \frac{2}{r} \pdv{}{r} + \frac{1}{r^2} \laplacian_\omega \;,
+\end{equation}
+where $\laplacian_\omega$ is the Laplacian on the surface of the unit sphere. Then in the $(\alpha, \omega)$ coordinates the heat equation in Eq.~(\ref{eq:heat}) becomes \cite{SM}
+\begin{equation} \label{eq:spherical-heat}
+    \alpha^2 \pdv[2]{S}{\alpha} + \left(\frac{3}{2} + \alpha\right)\alpha \pdv{S}{\alpha} + \frac{1}{4} \laplacian_\omega S = 0 \;.
+\end{equation}
+This partial differential equation is linear and $\alpha, \omega$ appear in separate terms so we can apply the separation of variables and look for solutions of the form $S(\alpha, \omega) \equiv f(\alpha) m(\omega)$. Inserting this form in Eq.~(\ref{eq:spherical-heat}) yields
+\begin{equation} \label{eq:f-m-ODE}
+    \frac{1}{f} \left[ \alpha^2 f'' + \left( \frac{3}{2} + \alpha \right) \alpha f' \right] = - \frac{1}{4 m}\laplacian_\omega m \;.
+\end{equation} 
+The left-hand-side of Eq.~(\ref{eq:f-m-ODE}) depends only on $\alpha$ whereas the right-hand-side depends only on $\omega$ hence they must be both equal to the same constant which we write $\nu(\nu+1)/4$ for reasons which will become apparent soon. Let $T$ denote the spherical triangle which is cut out of the unit 2-sphere in the center-of-mass coordinates by the 3 hyperplanes $x_0 = x_i$ for $i = 1, 2, 3$ (see Fig.~\ref{fig:config}b and~c). We start by looking at the angular part of Eq.~(\ref{eq:f-m-ODE}) which gives
+\begin{equation} \label{eq:m-ODE}
+    \begin{dcases}
+        -\laplacian_\omega m_j = \nu_j(\nu_j + 1) m_j &\mbox{~~in~~} T \\
+        m_j = 0 &\mbox{~~on~~} \partial T 
+    \end{dcases} \;.
+\end{equation}
+This is in fact an eigenvalue problem which corresponds to the Schr\"odinger equation of a free quantum particle that moves on the surface of
+the sphere and is confined to $T$ by hard walls, i.e.
+a quantum billiard \cite{SS01}. Then $\nu_j$ plays the role of an angular momentum quantum number, and is not an integer because
+of the confinement, which is why we chose to write the constant as $\nu(\nu+1)$. In this quantum language, $m_1$ is the ground state and is the only state with constant sign, which we fix to be positive (see Fig.~\ref{fig:config}c). On the other hand, the radial component of Eq.~(\ref{eq:f-m-ODE}) yields
+\begin{equation} \label{eq:f-ODE}
+    \alpha^2 f_j'' + \left(\frac{3}{2} + \alpha\right)\alpha f_j' - \frac{1}{4} \nu_j(\nu_j + 1) f_j = 0 \;. 
+\end{equation}
+To solve it we start by considering the small $\alpha$ limit (i.e. the long-time limit) where we expect $f_j(\alpha) \sim \alpha^s$ and we can approximate $3/2 + \alpha \sim 3/2$ in Eq.~(\ref{eq:f-ODE}) which gives
+\begin{equation} \label{eq:s}
+    s(s+1/2) = \frac{1}{4} \nu_j(\nu_j + 1)  \;. 
+\end{equation}
+Hence $s = \nu_j / 2$ or $s = - (\nu_j + 1)/2$ but the second solution is divergent for $\alpha \to 0^+$ which is not possible for a probability. Therefore we take $f(\alpha) = \alpha^{\nu_j/2} g(\alpha)$ which when plugged back into Eq.~(\ref{eq:f-ODE}) gives
+\begin{equation} \label{eq:g-ODE}
+    \alpha g'' + \left(\nu_j + \frac{3}{2} + \alpha\right) g' + \frac{1}{2} \nu_j g = 0 \;.
+\end{equation}
+With $z = -\alpha$ this is Kummer's equation \cite{DLMF} hence
+\begin{equation} \label{eq:f-solution}
+    f_j(\alpha) = \alpha^{\nu_j/2} \,_1F_1\left(\frac{\nu_j}{2}; \nu_j + \frac{3}{2} ; - \alpha\right) \;,
+\end{equation}
+where $\,_1F_1(a;b;z)$ is the confluent hypergeometric function. The asymptotics of the radial function can be obtained from the known asymptotics of the hypergeometric function
+\begin{equation}\label{eq:f-asymptotic}
+    f_j(\alpha) \to \begin{dcases}
+        \frac{\alpha ^{\nu_j /2} (3-(\alpha -2) \nu_j )}{2 \nu_j +3} &\mbox{~~when~~} \alpha \ll 1\\
+        \frac{\Gamma \left(\nu_j +\frac{3}{2}\right)}{\Gamma \left(\frac{\nu_j +3}{2}\right)} &\mbox{~~when~~} \alpha \to +\infty
+    \end{dcases} \;.
+\end{equation}
+Coming back to the original Eq.~(\ref{eq:spherical-heat}), its linearity imposes that the solution has to be a linear superposition $S = \sum_j B_j m_j(\omega) f_j(\alpha)$. From Eq.~(\ref{eq:m-ODE}) we know that $m_j(\omega)$ are orthonormal and using the early-time limit of $f_j(\alpha)$ in Eq.~(\ref{eq:f-asymptotic}) together with the boundary condition $S = 1$ at $t = 0$ we get
+\begin{equation} \label{eq:Bj-solution}
+    B_j = \frac{\Gamma(\frac{\nu_j + 3}{2})}{\Gamma(\nu_j + 3/2)} \int \dd \omega \; m_j(\omega) \;.
+\end{equation}
+When the three lions start together at a distance $\ell$ behind the lamb, the particle starts on the axis of the cone, in the direction $c$ of the center of $T$, at a distance $r = \sqrt{3} \ell/2$ from the apex. We thus obtain \cite{SM}
+\begin{equation} \label{eq:S3-series}
+S_3(t) = \sum_{j \geq 1} A_j \alpha^{\nu_j/2} \,_1F_1(\frac{\nu_j}{2}; \nu_j + \frac{3}{2}; -\alpha) \;,
+\end{equation}
+with $A_j= B_j m_j(c)$ and $\alpha = 3 \ell^2/16 D t$. This expression is exact at all times,
+but it is only implicit: it requires the eigenvalues $\nu_j$ and
+the eigenfunctions $m_j$ of Eq.~(\ref{eq:m-ODE}). At late times, $\alpha \to 0$, the $j$-th term decays as $t^{-\nu_j /2}$. The ground state therefore dominates, $S_3(t) \simeq A_1 \alpha^{\nu_1 /2}$, and
+\begin{equation} \label{eq:beta-nu}
+    \beta_3 = \frac{\nu_1}{2}\;.
+\end{equation}
+Solving the three lion problem therefore reduces to finding the ground state energy of the Schr\"odinger equation in Eq.~(\ref{eq:m-ODE}) \rev{\cite{RT09}}. For two lions the same steps apply in two dimensions. The modes are $\sin(\mu \phi)$ on the arc of Fig.~\ref{fig:config}a, with $\mu = 3/2,3,\cdots$, the $\mu$-th term
+decays as $t^{-\mu/2}$, and we recover $\beta_2 = 3/4$.
+
+\emph{A hidden symmetry.}  The eigenvalue problem of Eq.~(\ref{eq:m-ODE}), could so far be solved only numerically. The key to its solution, and the main contribution of this Letter, is a conservation law, which is easiest to describe classically. We place ourselves in the following coordinates
+\begin{align}
+    q_1 = (x_0 + x_1 - x_2 - x_3)/2 \;,\nonumber\\
+    q_2 = (x_0 - x_1 + x_2 - x_3)/2 \;,\label{eq:def-q}\\
+    q_3 = (x_0 - x_1 - x_2 + x_3)/2 \;.\nonumber
+\end{align}
+The three capture events are defined by the walls $q_j + q_k = 0$ while the planes $q_j - q_k = 0$ are symmetry planes corresponding to when two lions cross paths. Together these six planes are the diagonal mirror planes of a cube with axes $q_1, q_2, q_3$, and the cone is the region of space
+closest to one vertex of a regular tetrahedron inscribed in this cube.
+
+Consider now the classical counterpart of this problem. A ball moves freely inside the cone and bounces elastically off its walls (see Fig.~\ref{fig:billiard}a). Between two bounces its angular momentum $\vb{L} = (L_1,L_2,L_3)$ is conserved. Since every wall is a mirror plane of the cube, a bounce merely
+exchanges two components of $L$, up to signs. Any symmetric function of $L^2_1$, $L^2_2$ and $L^2_3$ is therefore conserved forever. The simplest one, $L^2_1 + L^2_2 + L^2_3$, is the energy. The next one,
+\begin{equation}\label{eq:def-O}
+    \mathcal{O}_4 = L^4_1 + L^4_2 + L^4_3 \;,
+\end{equation}
+is a new constant of motion (see Fig.~\ref{fig:billiard}b). Hence, the classical billiard is integrable. In fact, all its trajectories are periodic \cite{SS01}.
+
+\begin{figure}[t]
+\includegraphics[width=\columnwidth]{figs/fig_billiard.pdf}
+\caption{Billiard picture of the hidden conserved quantity. (a) A ball moves along great circles inside the triangle $T$ of Fig.~\ref{fig:config}c and bounces off the capture walls, the numbers label the successive bounces. (b) Squared components of its angular momentum along the axes $q_1, q_2, q_3$ as a function of the distance travelled. Each bounce exchanges two of them, as indicated next to the walls in (a), so that $L_1^4 + L_2^4 + L_3^4$ (dashed line) is conserved.}
+\label{fig:billiard}
+\end{figure}
+
+\begin{figure}[t]
+\includegraphics[width=\columnwidth]{figs/fig_corner.pdf}
+\caption{Zoom on a corner $V$ of the triangle $T$ (shaded region of the inset) in the corner coordinates $(\theta, \phi)$: $\theta$ is the angular distance to $V$ and $\phi$ is the angle around it, measured from the wall on which the lamb meets lion 1. The two capture walls which meet at $V$ are the lines $\phi = 0$ and $\phi = 2\pi/3$, and the two lions meet on the dashed line $\phi = \pi/3$, which goes through the center $c$ of $T$ located at $\cos \theta = 1/3$. Dotted lines: circles of constant $\theta$. Colors: ground state $m_1$, with the same color scale as in Fig.~\ref{fig:config}c. Close to the corner it reduces to the two-lion form of Eq.~(\ref{eq:ground-vertex}).}
+\label{fig:corner}
+\end{figure}
+
+Does this conservation law survive in its quantum counterpart? There $\vb{L} = - i \vb{q} \times \nabla$ is the angular momentum operator, and the Hamiltonian is $\vb{L}^2 = - \laplacian_\omega$. Conservation in the quantum case means that the symmetry operator commutes with the Hamiltonian $[\hat{\mathcal{O}}_4, \vb{L}^2] = 0$. Away from the corners this is guaranteed by the mirror symmetries. At the corners, however, waves diffract, and \rev{in planar billiards whose angles are not of the form $\pi/n$ the classical conserved quantities are known not to survive in the quantum problem} \cite{RB81,KGW24}\rev{,} for the same reason the method of images fails. Three copies of $T$ surround a corner, and alternating signs cannot be assigned consistently to an odd number of them. Physically, being close to a corner corresponds to a situation where the lamb is being approached by two lions while the third is still far away. Hence to first order the neighborhood of the corner should behave like the two lion problem which has a known solution
+\begin{equation} \label{eq:ground-vertex}
+    m_1 \simeq C \theta^{3/2} \sin \frac{3 \phi}{2}, \mbox{~~as~~} \theta \to 0^+ \;,
+\end{equation}
+where $\theta$ is the angular distance to the corner and $\phi$ is the angle around it (see Fig.~\ref{fig:corner}). Now acting on $m_1$ with $\hat{\mathcal{O}}_4$ would normally generate a singular divergence in $\theta^{-3/2}$ but for a corner of angle $2 \pi / 3$ this divergence vanishes (see the Supplemental Material for a detailed derivation \cite{SM}). Consequently, the eigenstates can be chosen such that
+\begin{equation} \label{eq:O4-eigen}
+    \hat{\mathcal{O}}_4 m_j = \kappa_j m_j \;.
+\end{equation}
+Each level has two quantum numbers, $\nu_j$ and $\kappa_j$, which makes this system with two degrees of freedom integrable. The situation is reminiscent of the hydrogen atom, whose hidden symmetry, associated with the Runge-Lenz vector, is not visible in the geometry of the problem either. The operator of Eq.~(\ref{eq:def-O}) is in fact familiar: it is the cubic crystal-field Hamiltonian of a magnetic ion, and it splits the rotational levels of spherical-top molecules \cite{LLW62,AB70,Hecht61}. Solving the three-lion problem is thus equivalent to diagonalizing a cubic crystal field, with a noninteger angular momentum $\nu$. \rev{Conserved quantities of this kind, i.e., invariant polynomials of a reflection group evaluated on the angular momenta, are known for the angular Calogero model \cite{CL15} and for hard-core particles in a harmonic trap \cite{HODVJZ17}. There, however, the particle is confined to a single chamber of the group: all the mirrors are walls and all the corners are of the form $\pi/n$. Here only three of the six mirrors are walls, the triangle $T$ is the union of six chambers, and the conservation law holds only thanks to the cancellation at its corners.}
+
+\emph{Exact solution.} To solve the problem exactly we place ourselves in the same corner coordinates $(\theta, \phi)$ as in Eq.~(\ref{eq:ground-vertex}) (see Fig.~\ref{fig:corner}). Then writing the ground state as $m_1(\theta, \phi) \equiv g(\theta) \sin(\mu \phi)$ we get 
+\begin{equation} \label{eq:ground-legendre}
+    m_1(\theta, \phi) = \sum_{k \geq 0} c_k P_\nu^{-\mu_k}(\cos \theta) \sin(\mu_k \phi) \;,
+\end{equation}
+with $\mu_k = 3k + 3/2$ (see the Supplemental Material). The symmetry operator $\mathcal{O}_4$ in this basis is 
+\begin{equation} \label{eq:O-matrix}
+    \mathcal{O} = \begin{pmatrix}
+        D_0 & -\sqrt{2} & & \\
+        -\sqrt{2} \Lambda_0 & D_1 & -2 \sqrt{2} & \\
+         & -2 \sqrt{2}\Lambda_1 & D_2 & \ddots \\
+         & & \ddots & \ddots 
+    \end{pmatrix} \;,
+\end{equation}
+where $D_k = -\frac{7}{6}\mu_k^4 + (\lambda - 5/6)\mu_k^2 + \lambda^2/2$, with $\lambda = \nu(\nu + 1)$ and $\Lambda_k = \prod_{i = 0}^{2} (\nu - \mu_k - i)(\nu + \mu_k + 1 + i)$. Then Eq.~(\ref{eq:O4-eigen}) means that the coefficients $c_k$ in Eq.~(\ref{eq:ground-legendre}) are eigenvectors of the tri-diagonal matrix in Eq.~(\ref{eq:O-matrix}) with eigenvalue $\kappa$. This hidden conserved quantity has reduced the two-dimensional problem on the sphere to a one-dimensional one. 
+
+To diagonalize $\mathcal{O}$ we can exploit the tri-diagonal structure in Eq.~(\ref{eq:O-matrix}). The tri-diagonal structure gives us a recursive equation for the ratio $\rho_k = c_k / c_{k-1}$ of consecutive coefficients
+\begin{equation} \label{eq:rhok-rhokp1}
+    \rho_k = \frac{\sqrt{2} k \Lambda_{k - 1}}{D_k - \kappa - \sqrt{2}(k + 1) \rho_{k + 1}} \;.
+\end{equation}
+The row $k = 0$ initializes the recursion with $\kappa = D_0 - \sqrt{2} \rho_1$ and applying Eq.~(\ref{eq:rhok-rhokp1}) recursively gives $\kappa$ in a closed form as an infinite continued fraction
+\begin{equation}\label{eq:kappa}
+    \kappa(\nu) = D_0 - \cfrac{2 \Lambda_0}{D_1 - \kappa - \cfrac{8 \Lambda_1}{D_2 - \kappa - \cfrac{18 \Lambda_2}{D_3 - \kappa - \cdots}}} \;.
+\end{equation}
+For a fixed $\nu$ this equation can be solved easily by iteration. We start with $\kappa = D_0$ and plug it in the right hand side and iterate until a fixed point. In practice this sequence converges extremely quickly and truncating the infinite fraction to $K$ rows introduces an error of order $8^{-K}$ \cite{SM}. Then the coefficients $c_k(\nu)$ can be obtained via
+\begin{equation} \label{eq:ck}
+    c_k(\nu) = \rho_1 \rho_2 \cdots \rho_k \;.
+\end{equation}
+
+Now that $\kappa$ is fixed, we need to fix $\nu$. To do so we will use the symmetry at the center of the triangle ($c$ in Figs.~\ref{fig:config}c and~\ref{fig:corner}). At the center the three lions are superposed and hence should be exchangeable. This is the safest configuration for the lamb since it maximizes the distance to any of the lions. Hence $m_1$ should be maximal in $c$ which gives us a condition on the gradient of $m_1$ which has to cancel
+\begin{equation} \label{eq:nu-implicit}
+    \grad m_1 |_{c} = \sum_{k \geq 0} (-1)^k c_k(\nu) \dv{}{\theta} P_\nu^{-\mu_k} (\cos \theta) \Big|_{\cos \theta = 1/3} = 0 \;.
+\end{equation}
+The smallest positive root $\nu_1$ of Eq.~(\ref{eq:nu-implicit}) gives the three-lion exponent $\beta_3 = \nu_1/2$ thanks to Eq.~(\ref{eq:beta-nu}). In practice, $\nu$ can be obtained to arbitrary accuracy by a root search on Eq.~(\ref{eq:nu-implicit}). Doing so the first digits of $\beta_3$ are
+\begin{equation}
+    \beta_3 = 0.912\,878\,502\,087\,228\,125\,48\cdots \;.
+\end{equation}
+
+The same construction gives the excited states which are symmetric in the lions, each with its own pair $(\nu_j, \kappa_j)$, and hence all the non-vanishing terms of Eq.~(\ref{eq:S3-series}) \cite{SM}. In Fig.~\ref{fig:survival} we compare it with numerical simulations and find an excellent agreement at all times, without any fitting parameter.
+
+\begin{figure}[t]
+\includegraphics[width=\columnwidth]{figs/fig_survival.pdf}
+\caption{Survival probability $S_3(t)$ of the lamb for three lions starting together a distance $\ell$ behind it. Symbols: numerical simulations ($8 \times 10^6$ realizations of lattice random walks with $\ell = 12$ lattice spacings). Solid line: exact result of Eq.~(\ref{eq:S3-series}). Dashed line: late-time behavior of Eq.~(\ref{eq:main}). Lower panel: ratio of the simulations to the exact result, the small deviation at early times is due to the lattice.}
+\label{fig:survival}
+\end{figure}
+
+\emph{Ground state.} The ground state series expansion in Eq.~(\ref{eq:ground-legendre}) converges very quickly so the first term is a good approximation (within 0.3\% of the full expression) of the ground state and is explicitly given by
+\begin{align}
+    m_1 &\simeq P_\nu^{-3/2}(\cos \theta) \sin(3\phi/2) \nonumber\\
+    &= \sqrt{\frac{2}{\pi}} \frac{\cot \theta \sin a \theta - a \cos a\theta}{a(a^2 - 1)\sqrt{\sin \theta}} \sin \frac{3 \phi}{2} \;, \label{eq:ground-first}
+\end{align}
+where $a = \nu_1 + 1/2$. Eq.~(\ref{eq:ground-first}) has a simple interpretation. It is almost exactly the two-lion solution of
+Eq.~(\ref{eq:ground-vertex}), dressed by the curvature of the sphere. In other words, seen from the nearest corner, the third lion contributes almost nothing to the ground state. It makes itself felt essentially only through the eigenvalue of the ground state $\nu_1$ (and hence $\beta_3$).
+
+The ground state itself also has a physical meaning. For a lamb that is still alive at a late time $t \gg \ell^2/D$, the four animals are spread over a distance of order $\sqrt{D t}$, and the shape of their configuration is distributed over $T$ with a density proportional to $m_1(\omega)$ (see Fig.~\ref{fig:config}c) \cite{SM}. For instance, a surviving lamb at time $t$ leads the nearest lion by $1.918\sqrt{D t}$ on average, which we have checked numerically \cite{SM}. As expected this is below the lead of a lamb chased by a single lion, $\sqrt{2 \pi D t} \simeq 2.51 \sqrt{D t}$, or by two lions, $2.09 \sqrt{D t}$ \cite{SM}, meaning that the larger the pride the closer it presses the lamb.
+
+\emph{Other orderings and more lions.} The mechanism is not specific to the lamb and the lions. It only requires that the walls be mirror planes of the cube and that every corner be either of the form $\pi/n$ or a protected one, of angle $2\pi/3$. This is the case for several ordering problems of four random walkers~\cite{bA03,HbA18}. We have verified Eq.~\eqref{eq:O4-eigen} for three of them, and our exponents agree with the numerical values of Ref.~\cite{HbA18} (see Table~\ref{tab:orderings}). Two of them are capture problems: two lambs chased by two lions (second line), and a lamb caught between one lion ahead of it and two behind (fourth line). In contrast, the laggard problem~\cite{bA03}, i.e., the probability that a given walker never takes the lead, has corners of angle $4\pi/3$, for which the dangerous term does not vanish.
+
+\begin{table}[t]
+\caption{Ordering problems of four random walkers \rev{$A$, $B$, $C$ and $D$ on a line} solved by Eq.~\eqref{eq:O4-eigen}: the probability that the ordering \rev{of the first column} is maintained up to time $t$ decays as $t^{-\beta}$. \rev{Here $A > B$ means that $A$ stays ahead of $B$, and the relative order of the walkers inside braces is free. First line: $A$ remains the leader, i.e., a lamb and three lions. Second line: $A$ and $B$ both stay ahead of $C$ and $D$. Third line: $A$ remains the leader and $D$ the laggard. Fourth line: $A$ remains first and $B$ second.} Last column: numerical values of Ref.~\cite{HbA18}\rev{, where these four problems are called leader, teams, bookends and $12{\bullet}{\bullet}$}.}
+\label{tab:orderings}
+\begin{ruledtabular}
+\begin{tabular}{lll}
+Ordering maintained & \multicolumn{1}{c}{$\beta$ (exact)} & Ref.~\cite{HbA18}\\
+\hline
+% review mark: the first column read 'One walker leads', 'Two walkers lead the other two', 'Leader and laggard fixed', 'First and second place fixed'
+\rev{$A > \{B, C, D\}$} & 0.9128785021 & 0.91287850\\
+\rev{$\{A, B\} > \{C, D\}$} & 1.1949399623 & 1.1949400\\
+\rev{$A > \{B, C\} > D$} & 1.8737525413 & 1.8737525\\
+\rev{$A > B > \{C, D\}$} & 2.0716054591 & 2.0716054\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+For four lions the billiard still has conserved quantities of the type of Eq.~\eqref{eq:def-O}, but an exhaustive search up to tenth order in the angular momenta shows that none of them survives diffraction~\cite{SM}. The three-lion solution can nevertheless serve as the first step of a recursive construction of the $N$-lion states, described in the Supplemental Material~\cite{SM}, which yields $\beta_4=1.032\,267\,875$ and $\beta_5=1.125\,865\,77$. In particular $\beta_3<1<\beta_4$, consistent with a finite mean capture time for four lions~\cite{RT09}. The construction also provides an exact relation between $\beta_{N-1}$ and $\beta_N$. For a large pride it indicates that each additional lion raises the exponent by $1/(4N)$, which accounts for the logarithmic law $\beta_N\simeq\frac14\ln N$~\cite{KR96,LS02,SM}.
+
+
+\emph{Conclusion.} To summarize, we have solved exactly the capture of a diffusing lamb by three diffusing lions, the simplest capture process beyond the reach of the method of images. The solution rests on a hidden conserved quantity, which survives diffraction at the corners of the absorbing cone precisely because of their special angle $2\pi/3$, and which reduces the problem to that of a single spin in a cubic crystal field. \rev{It also gives the critical exponent of the three-dimensional Kreweras walks as the root of an explicit equation, while the question of its rationality~\cite{BPRT20,HJR24} remains open.} A natural question concerns animals with different diffusion constants~\cite{KR96,RK99}, for which the walls are no longer mirror planes of the cube. We hope that the mechanism uncovered here will be useful for other first-passage problems of interacting or ordered particles and, through the correspondence with trapped impurities \cite{SM,ZVFJV14,HODVJZ17,RIJ24}, % review mark: HODVJZ17 was added to this list (it cannot be coloured separately)
+for few-body problems of ultracold atoms.
+
+
+
+\rev{\emph{Code availability.} The code which implements the solution and produces the figures, together with the data of the simulations, is openly available at \url{https://github.com/MarcoBiroli/lamb_lions}.}
+
+\begin{acknowledgments}
+    {\bf Acknowledgments.} \rev{This research received support through Schmidt Sciences, LLC.} The calculations and the simulations of this manuscript were prepared with the assistance of Claude (Anthropic). The Supplemental Material was drafted by Claude (Anthropic) and is currently being cleaned-up/reviewed by the author.
+\end{acknowledgments}
+
+\bibliography{refs}
+
+\input{supplement}
+
+\end{document}
