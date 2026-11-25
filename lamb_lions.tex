@@ -5,12 +5,7 @@
 \usepackage{bm}
 \usepackage{mathtools}
 \usepackage{physics}
-\usepackage{xcolor}
 \usepackage[colorlinks=true,allcolors=blue]{hyperref}
-
-% REVIEW MARKS: the text added or reworded on 2026-11-25 (motivations and citations) is wrapped in \rev{...} and typeset in blue.
-% To switch the marks off, replace the next line by \newcommand{\rev}[1]{#1}; to accept a change, remove its \rev{ } wrapper.
-\newcommand{\rev}[1]{\textcolor{blue}{#1}}
 
 \newcommand{\eq}[1]{Eq.~(\ref{#1})}
 \newcommand{\eqs}[2]{Eqs.~(\ref{#1}) and~(\ref{#2})}
@@ -44,11 +39,9 @@ One of the most classical formulations of this problem is known as the lamb and 
 \label{fig:sketch}
 \end{figure}
 
-The first case which has resisted for the past three decades is $N = 3$. It is also a borderline case, it is known that the mean capture time is infinite for $N \leq 3$ but finite for $N \geq 4$ \cite{BG91,LS01,RT09}. So three lions is the largest pride for which the lamb escapes, on average, for an infinite time. The exponent $\beta_3$ has no known closed form solution but has been estimated numerically, first as $\beta_3 \approx 0.91$ \cite{BG91,RK99}, then 0.91342(8) \cite{bA03} \rev{and then $0.912\,878\,50$} \cite{HbA18}\rev{.}
-% REMOVED HERE (review mark): ', then $0.912\,878\,50$ \cite{HbA18} and finally in most recent works it was determined up to 100 digits \cite{BBKM16,BPRT20,DS20}.'  The 100 digits are now in the next paragraph, attributed to DS20 only.
-To our knowledge, no equation determining $\beta_3$ in closed form is known.
+The first case which has resisted for the past three decades is $N = 3$. It is also a borderline case, it is known that the mean capture time is infinite for $N \leq 3$ but finite for $N \geq 4$ \cite{BG91,LS01,RT09}. So three lions is the largest pride for which the lamb escapes, on average, for an infinite time. The exponent $\beta_3$ has no known closed form solution but has been estimated numerically, first as $\beta_3 \approx 0.91$ \cite{BG91,RK99}, then 0.91342(8) \cite{bA03} and then $0.912\,878\,50$ \cite{HbA18}. To our knowledge, no equation determining $\beta_3$ in closed form is known.
 
-\rev{The same number appears in two other fields. In enumerative combinatorics it controls the three-dimensional Kreweras walks, i.e., the lattice walks with steps $(-1,0,0)$, $(0,-1,0)$, $(0,0,-1)$ and $(1,1,1)$ confined to the positive octant \cite{BBKM16,BPRT20}: the number of those which return to the origin after $n$ steps grows as $4^n n^{-(2\beta_3 + 3/2)}$ \cite{DW15,BPRT20,SM}. It is in this context that $\beta_3$ is known most accurately, to 100 digits \cite{DS20}. Its exact value and its rationality are open problems \cite{BPRT20,HJR24}, an irrational value implying that the generating function of these walks is not D-finite \cite{BPRT20,DS20}, and the underlying eigenvalue problem was not expected to be solvable in an explicit manner \cite{HJR24}. In ultracold atoms, $2 \beta_N \hbar \omega$ is the energy of an impurity which repels, with an infinite contact interaction, $N$ noninteracting bosons in a one-dimensional harmonic trap of frequency $\omega$ \cite{SM}. To our knowledge it is known exactly for $N \leq 2$ only \cite{ZVFJV14}, the available exact solutions being restricted to hard walls which sit on all the mirrors of a reflection group \cite{HODVJZ17}, and numerically beyond \cite{DVZ15,RIJ24}.}
+The same number appears in two other fields. In enumerative combinatorics it controls the three-dimensional Kreweras walks, i.e., the lattice walks with steps $(-1,0,0)$, $(0,-1,0)$, $(0,0,-1)$ and $(1,1,1)$ confined to the positive octant \cite{BBKM16,BPRT20}: the number of those which return to the origin after $n$ steps grows as $4^n n^{-(2\beta_3 + 3/2)}$ \cite{DW15,BPRT20,SM}. It is in this context that $\beta_3$ is known most accurately, to 100 digits \cite{DS20}. Its exact value and its rationality are open problems \cite{BPRT20,HJR24}, an irrational value implying that the generating function of these walks is not D-finite \cite{BPRT20,DS20}, and the underlying eigenvalue problem was not expected to be solvable in an explicit manner \cite{HJR24}. In ultracold atoms, $2 \beta_N \hbar \omega$ is the energy of an impurity which repels, with an infinite contact interaction, $N$ noninteracting bosons in a one-dimensional harmonic trap of frequency $\omega$ \cite{SM}. To our knowledge it is known exactly for $N \leq 2$ only \cite{ZVFJV14}, the available exact solutions being restricted to hard walls which sit on all the mirrors of a reflection group \cite{HODVJZ17}, and numerically beyond \cite{DVZ15,RIJ24}.
 
 In this Letter we solve the three lion problem exactly. Let us first summarize our main results. For three lions starting $\ell$ behind the lamb at $t = 0$ the late-time survival probability is given by
 \begin{equation} \label{eq:main}
@@ -149,7 +142,7 @@ the eigenfunctions $m_j$ of Eq.~(\ref{eq:m-ODE}). At late times, $\alpha \to 0$,
 \begin{equation} \label{eq:beta-nu}
     \beta_3 = \frac{\nu_1}{2}\;.
 \end{equation}
-Solving the three lion problem therefore reduces to finding the ground state energy of the Schr\"odinger equation in Eq.~(\ref{eq:m-ODE}) \rev{\cite{RT09}}. For two lions the same steps apply in two dimensions. The modes are $\sin(\mu \phi)$ on the arc of Fig.~\ref{fig:config}a, with $\mu = 3/2,3,\cdots$, the $\mu$-th term
+Solving the three lion problem therefore reduces to finding the ground state energy of the Schr\"odinger equation in Eq.~(\ref{eq:m-ODE}) \cite{RT09}. For two lions the same steps apply in two dimensions. The modes are $\sin(\mu \phi)$ on the arc of Fig.~\ref{fig:config}a, with $\mu = 3/2,3,\cdots$, the $\mu$-th term
 decays as $t^{-\mu/2}$, and we recover $\beta_2 = 3/4$.
 
 \emph{A hidden symmetry.}  The eigenvalue problem of Eq.~(\ref{eq:m-ODE}), could so far be solved only numerically. The key to its solution, and the main contribution of this Letter, is a conservation law, which is easiest to describe classically. We place ourselves in the following coordinates
@@ -180,7 +173,7 @@ is a new constant of motion (see Fig.~\ref{fig:billiard}b). Hence, the classical
 \label{fig:corner}
 \end{figure}
 
-Does this conservation law survive in its quantum counterpart? There $\vb{L} = - i \vb{q} \times \nabla$ is the angular momentum operator, and the Hamiltonian is $\vb{L}^2 = - \laplacian_\omega$. Conservation in the quantum case means that the symmetry operator commutes with the Hamiltonian $[\hat{\mathcal{O}}_4, \vb{L}^2] = 0$. Away from the corners this is guaranteed by the mirror symmetries. At the corners, however, waves diffract, and \rev{in planar billiards whose angles are not of the form $\pi/n$ the classical conserved quantities are known not to survive in the quantum problem} \cite{RB81,KGW24}\rev{,} for the same reason the method of images fails. Three copies of $T$ surround a corner, and alternating signs cannot be assigned consistently to an odd number of them. Physically, being close to a corner corresponds to a situation where the lamb is being approached by two lions while the third is still far away. Hence to first order the neighborhood of the corner should behave like the two lion problem which has a known solution
+Does this conservation law survive in its quantum counterpart? There $\vb{L} = - i \vb{q} \times \nabla$ is the angular momentum operator, and the Hamiltonian is $\vb{L}^2 = - \laplacian_\omega$. Conservation in the quantum case means that the symmetry operator commutes with the Hamiltonian $[\hat{\mathcal{O}}_4, \vb{L}^2] = 0$. Away from the corners this is guaranteed by the mirror symmetries. At the corners, however, waves diffract, and in planar billiards whose angles are not of the form $\pi/n$ the classical conserved quantities are known not to survive in the quantum problem \cite{RB81,KGW24}, for the same reason the method of images fails. Three copies of $T$ surround a corner, and alternating signs cannot be assigned consistently to an odd number of them. Physically, being close to a corner corresponds to a situation where the lamb is being approached by two lions while the third is still far away. Hence to first order the neighborhood of the corner should behave like the two lion problem which has a known solution
 \begin{equation} \label{eq:ground-vertex}
     m_1 \simeq C \theta^{3/2} \sin \frac{3 \phi}{2}, \mbox{~~as~~} \theta \to 0^+ \;,
 \end{equation}
@@ -188,7 +181,7 @@ where $\theta$ is the angular distance to the corner and $\phi$ is the angle aro
 \begin{equation} \label{eq:O4-eigen}
     \hat{\mathcal{O}}_4 m_j = \kappa_j m_j \;.
 \end{equation}
-Each level has two quantum numbers, $\nu_j$ and $\kappa_j$, which makes this system with two degrees of freedom integrable. The situation is reminiscent of the hydrogen atom, whose hidden symmetry, associated with the Runge-Lenz vector, is not visible in the geometry of the problem either. The operator of Eq.~(\ref{eq:def-O}) is in fact familiar: it is the cubic crystal-field Hamiltonian of a magnetic ion, and it splits the rotational levels of spherical-top molecules \cite{LLW62,AB70,Hecht61}. Solving the three-lion problem is thus equivalent to diagonalizing a cubic crystal field, with a noninteger angular momentum $\nu$. \rev{Conserved quantities of this kind, i.e., invariant polynomials of a reflection group evaluated on the angular momenta, are known for the angular Calogero model \cite{CL15} and for hard-core particles in a harmonic trap \cite{HODVJZ17}. There, however, the particle is confined to a single chamber of the group: all the mirrors are walls and all the corners are of the form $\pi/n$. Here only three of the six mirrors are walls, the triangle $T$ is the union of six chambers, and the conservation law holds only thanks to the cancellation at its corners.}
+Each level has two quantum numbers, $\nu_j$ and $\kappa_j$, which makes this system with two degrees of freedom integrable. The situation is reminiscent of the hydrogen atom, whose hidden symmetry, associated with the Runge-Lenz vector, is not visible in the geometry of the problem either. The operator of Eq.~(\ref{eq:def-O}) is in fact familiar: it is the cubic crystal-field Hamiltonian of a magnetic ion, and it splits the rotational levels of spherical-top molecules \cite{LLW62,AB70,Hecht61}. Solving the three-lion problem is thus equivalent to diagonalizing a cubic crystal field, with a noninteger angular momentum $\nu$. Conserved quantities of this kind, i.e., invariant polynomials of a reflection group evaluated on the angular momenta, are known for the angular Calogero model \cite{CL15} and for hard-core particles in a harmonic trap \cite{HODVJZ17}. There, however, the particle is confined to a single chamber of the group: all the mirrors are walls and all the corners are of the form $\pi/n$. Here only three of the six mirrors are walls, the triangle $T$ is the union of six chambers, and the conservation law holds only thanks to the cancellation at its corners.
 
 \emph{Exact solution.} To solve the problem exactly we place ourselves in the same corner coordinates $(\theta, \phi)$ as in Eq.~(\ref{eq:ground-vertex}) (see Fig.~\ref{fig:corner}). Then writing the ground state as $m_1(\theta, \phi) \equiv g(\theta) \sin(\mu \phi)$ we get 
 \begin{equation} \label{eq:ground-legendre}
@@ -248,17 +241,16 @@ The ground state itself also has a physical meaning. For a lamb that is still al
 \emph{Other orderings and more lions.} The mechanism is not specific to the lamb and the lions. It only requires that the walls be mirror planes of the cube and that every corner be either of the form $\pi/n$ or a protected one, of angle $2\pi/3$. This is the case for several ordering problems of four random walkers~\cite{bA03,HbA18}. We have verified Eq.~\eqref{eq:O4-eigen} for three of them, and our exponents agree with the numerical values of Ref.~\cite{HbA18} (see Table~\ref{tab:orderings}). Two of them are capture problems: two lambs chased by two lions (second line), and a lamb caught between one lion ahead of it and two behind (fourth line). In contrast, the laggard problem~\cite{bA03}, i.e., the probability that a given walker never takes the lead, has corners of angle $4\pi/3$, for which the dangerous term does not vanish.
 
 \begin{table}[t]
-\caption{Ordering problems of four random walkers \rev{$A$, $B$, $C$ and $D$ on a line} solved by Eq.~\eqref{eq:O4-eigen}: the probability that the ordering \rev{of the first column} is maintained up to time $t$ decays as $t^{-\beta}$. \rev{Here $A > B$ means that $A$ stays ahead of $B$, and the relative order of the walkers inside braces is free. First line: $A$ remains the leader, i.e., a lamb and three lions. Second line: $A$ and $B$ both stay ahead of $C$ and $D$. Third line: $A$ remains the leader and $D$ the laggard. Fourth line: $A$ remains first and $B$ second.} Last column: numerical values of Ref.~\cite{HbA18}\rev{, where these four problems are called leader, teams, bookends and $12{\bullet}{\bullet}$}.}
+\caption{Ordering problems of four random walkers $A$, $B$, $C$ and $D$ on a line solved by Eq.~\eqref{eq:O4-eigen}: the probability that the ordering of the first column is maintained up to time $t$ decays as $t^{-\beta}$. Here $A > B$ means that $A$ stays ahead of $B$, and the relative order of the walkers inside braces is free. First line: $A$ remains the leader, i.e., a lamb and three lions. Second line: $A$ and $B$ both stay ahead of $C$ and $D$. Third line: $A$ remains the leader and $D$ the laggard. Fourth line: $A$ remains first and $B$ second. Last column: numerical values of Ref.~\cite{HbA18}, where these four problems are called leader, teams, bookends and $12{\bullet}{\bullet}$.}
 \label{tab:orderings}
 \begin{ruledtabular}
 \begin{tabular}{lll}
 Ordering maintained & \multicolumn{1}{c}{$\beta$ (exact)} & Ref.~\cite{HbA18}\\
 \hline
-% review mark: the first column read 'One walker leads', 'Two walkers lead the other two', 'Leader and laggard fixed', 'First and second place fixed'
-\rev{$A > \{B, C, D\}$} & 0.9128785021 & 0.91287850\\
-\rev{$\{A, B\} > \{C, D\}$} & 1.1949399623 & 1.1949400\\
-\rev{$A > \{B, C\} > D$} & 1.8737525413 & 1.8737525\\
-\rev{$A > B > \{C, D\}$} & 2.0716054591 & 2.0716054\\
+$A > \{B, C, D\}$ & 0.9128785021 & 0.91287850\\
+$\{A, B\} > \{C, D\}$ & 1.1949399623 & 1.1949400\\
+$A > \{B, C\} > D$ & 1.8737525413 & 1.8737525\\
+$A > B > \{C, D\}$ & 2.0716054591 & 2.0716054\\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -266,15 +258,14 @@ Ordering maintained & \multicolumn{1}{c}{$\beta$ (exact)} & Ref.~\cite{HbA18}\\
 For four lions the billiard still has conserved quantities of the type of Eq.~\eqref{eq:def-O}, but an exhaustive search up to tenth order in the angular momenta shows that none of them survives diffraction~\cite{SM}. The three-lion solution can nevertheless serve as the first step of a recursive construction of the $N$-lion states, described in the Supplemental Material~\cite{SM}, which yields $\beta_4=1.032\,267\,875$ and $\beta_5=1.125\,865\,77$. In particular $\beta_3<1<\beta_4$, consistent with a finite mean capture time for four lions~\cite{RT09}. The construction also provides an exact relation between $\beta_{N-1}$ and $\beta_N$. For a large pride it indicates that each additional lion raises the exponent by $1/(4N)$, which accounts for the logarithmic law $\beta_N\simeq\frac14\ln N$~\cite{KR96,LS02,SM}.
 
 
-\emph{Conclusion.} To summarize, we have solved exactly the capture of a diffusing lamb by three diffusing lions, the simplest capture process beyond the reach of the method of images. The solution rests on a hidden conserved quantity, which survives diffraction at the corners of the absorbing cone precisely because of their special angle $2\pi/3$, and which reduces the problem to that of a single spin in a cubic crystal field. \rev{It also gives the critical exponent of the three-dimensional Kreweras walks as the root of an explicit equation, while the question of its rationality~\cite{BPRT20,HJR24} remains open.} A natural question concerns animals with different diffusion constants~\cite{KR96,RK99}, for which the walls are no longer mirror planes of the cube. We hope that the mechanism uncovered here will be useful for other first-passage problems of interacting or ordered particles and, through the correspondence with trapped impurities \cite{SM,ZVFJV14,HODVJZ17,RIJ24}, % review mark: HODVJZ17 was added to this list (it cannot be coloured separately)
-for few-body problems of ultracold atoms.
+\emph{Conclusion.} To summarize, we have solved exactly the capture of a diffusing lamb by three diffusing lions, the simplest capture process beyond the reach of the method of images. The solution rests on a hidden conserved quantity, which survives diffraction at the corners of the absorbing cone precisely because of their special angle $2\pi/3$, and which reduces the problem to that of a single spin in a cubic crystal field. It also gives the critical exponent of the three-dimensional Kreweras walks as the root of an explicit equation, while the question of its rationality~\cite{BPRT20,HJR24} remains open. A natural question concerns animals with different diffusion constants~\cite{KR96,RK99}, for which the walls are no longer mirror planes of the cube. We hope that the mechanism uncovered here will be useful for other first-passage problems of interacting or ordered particles and, through the correspondence with trapped impurities \cite{SM,ZVFJV14,HODVJZ17,RIJ24}, for few-body problems of ultracold atoms.
 
 
 
-\rev{\emph{Code availability.} The code which implements the solution and produces the figures, together with the data of the simulations, is openly available at \url{https://github.com/MarcoBiroli/lamb_lions}.}
+\emph{Code availability.} The code which implements the solution and produces the figures, together with the data of the simulations, is openly available at \url{https://github.com/MarcoBiroli/lamb_lions}.
 
 \begin{acknowledgments}
-    {\bf Acknowledgments.} \rev{This research received support through Schmidt Sciences, LLC.} The calculations and the simulations of this manuscript were prepared with the assistance of Claude (Anthropic). The Supplemental Material was drafted by Claude (Anthropic) and is currently being cleaned-up/reviewed by the author.
+    {\bf Acknowledgments.} This research received support through Schmidt Sciences, LLC. The calculations and the simulations of this manuscript were prepared with the assistance of Claude (Anthropic). The Supplemental Material was drafted by Claude (Anthropic) and is currently being cleaned-up/reviewed by the author.
 \end{acknowledgments}
 
 \bibliography{refs}
